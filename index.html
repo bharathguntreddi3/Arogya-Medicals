@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1f6fd6" />
+    <title>Arogya Medicals — Genuine Medicines, Trusted Care | Visakhapatnam</title>
+    <meta
+      name="description"
+      content="Arogya Medicals in Sundar Nagar, Visakhapatnam. Genuine medicines and prescription assistance. Best discounts on all medicines. Call or WhatsApp 9885191077 to check availability."
+    />
+
+    <!-- Apply saved theme + language before first paint (no flash of the wrong theme).
+         The pre-rendered page is English, so Telugu visitors see it hidden until React
+         swaps in Telugu; only they download the Telugu font. -->
+    <style>
+      .lang-pending #root { visibility: hidden; }
+      .ribbon-closed [data-ribbon] { display: none; }
+    </style>
+    <script>
+      try {
+        var html = document.documentElement
+        var theme = localStorage.getItem('arogya-theme')
+        if (theme === 'dark' || (!theme && matchMedia('(prefers-color-scheme: dark)').matches)) {
+          html.classList.add('dark')
+        }
+        // visitor closed the offers strip recently: hide it before it can flash up
+        var ribbon = JSON.parse(localStorage.getItem('arogya-ribbon-closed') || 'null')
+        if (ribbon && ribbon.until > Date.now()) html.classList.add('ribbon-closed')
+        if (localStorage.getItem('arogya-lang') === 'te') {
+          html.lang = 'te'
+          html.classList.add('lang-pending')
+          var font = document.createElement('link')
+          font.id = 'font-telugu'
+          font.rel = 'stylesheet'
+          font.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap'
+          document.head.appendChild(font)
+        }
+      } catch (e) {}
+    </script>
+
+    <!-- Link previews (WhatsApp, Facebook, X). After going live, change these
+         image paths to the full URL, e.g. https://your-domain.com/og-image.jpg -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Arogya Medicals" />
+    <meta property="og:title" content="Arogya Medicals — Genuine Medicines, Trusted Care" />
+    <meta
+      property="og:description"
+      content="Trusted neighborhood pharmacy in Visakhapatnam. Best discounts on all medicines. Call or WhatsApp to check stock, then visit the store."
+    />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:locale:alternate" content="te_IN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="/og-image.jpg" />
+
+    <!-- Shop details for Google (hours, phone, address) are rendered by
+         src/components/StructuredData.jsx from the admin settings. -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

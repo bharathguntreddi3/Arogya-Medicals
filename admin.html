@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- private page: keep it out of Google -->
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Admin · Arogya Medicals</title>
+    <script>
+      // same saved light/dark choice as the website, applied before first paint
+      try {
+        var theme = localStorage.getItem('arogya-theme')
+        if (theme === 'dark' || (!theme && matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark')
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="admin-root"></div>
+    <script type="module" src="/src/admin-main.jsx"></script>
+  </body>
+</html>

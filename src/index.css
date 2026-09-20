@@ -1,0 +1,329 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-glow: var(--primary-glow);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-strong: var(--accent-strong);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --radius: 0.875rem;
+
+  --background: oklch(0.99 0.005 230);
+  --foreground: oklch(0.22 0.04 240);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.04 240);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.04 240);
+
+  --primary: oklch(0.55 0.18 250);
+  --primary-foreground: oklch(0.99 0.005 230);
+  --primary-glow: oklch(0.72 0.15 240);
+
+  --secondary: oklch(0.72 0.17 155);
+  --secondary-foreground: oklch(0.18 0.05 160);
+
+  /* deep enough for white button text to stay readable (4.7:1) */
+  --success: oklch(0.53 0.15 152);
+  --success-foreground: oklch(0.99 0.005 230);
+
+  --muted: oklch(0.965 0.01 230);
+  --muted-foreground: oklch(0.5 0.03 240);
+
+  --accent: oklch(0.74 0.18 55);
+  --accent-foreground: oklch(0.2 0.05 50);
+  /* darker orange for small text and icons, readable on light backgrounds */
+  --accent-strong: oklch(0.53 0.16 45);
+
+  --destructive: oklch(0.55 0.21 27);
+  --destructive-foreground: oklch(0.99 0.005 230);
+
+  --border: oklch(0.92 0.012 230);
+  --input: oklch(0.92 0.012 230);
+  --ring: oklch(0.55 0.18 250);
+
+  --gradient-hero: linear-gradient(135deg, oklch(0.55 0.18 250) 0%, oklch(0.66 0.18 152) 100%);
+  --gradient-soft: linear-gradient(180deg, oklch(0.97 0.02 230) 0%, oklch(0.99 0.005 230) 100%);
+  --gradient-ribbon: linear-gradient(90deg, oklch(0.74 0.18 55), oklch(0.78 0.17 40), oklch(0.74 0.18 55));
+  --gradient-card: linear-gradient(180deg, oklch(1 0 0) 0%, oklch(0.97 0.015 230) 100%);
+
+  --shadow-soft: 0 8px 30px -12px oklch(0.55 0.18 250 / 0.18);
+  --shadow-glow: 0 20px 60px -20px oklch(0.55 0.18 250 / 0.35);
+  --shadow-accent: 0 12px 40px -10px oklch(0.74 0.18 55 / 0.45);
+
+  --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dark {
+  --background: oklch(0.18 0.03 245);
+  --foreground: oklch(0.97 0.01 230);
+  --card: oklch(0.22 0.04 245);
+  --card-foreground: oklch(0.97 0.01 230);
+  --popover: oklch(0.22 0.04 245);
+  --popover-foreground: oklch(0.97 0.01 230);
+  --primary: oklch(0.72 0.15 240);
+  --primary-foreground: oklch(0.18 0.03 245);
+  --secondary: oklch(0.66 0.18 152);
+  --secondary-foreground: oklch(0.18 0.03 245);
+  --success: oklch(0.7 0.17 152);
+  --success-foreground: oklch(0.18 0.03 245);
+  --destructive: oklch(0.68 0.19 25);
+  --destructive-foreground: oklch(0.18 0.03 245);
+  --muted: oklch(0.28 0.03 245);
+  --muted-foreground: oklch(0.75 0.02 230);
+  --accent: oklch(0.78 0.17 55);
+  --accent-foreground: oklch(0.2 0.05 50);
+  --accent-strong: oklch(0.78 0.17 55);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.72 0.15 240);
+
+  --gradient-soft: linear-gradient(180deg, oklch(0.22 0.035 245) 0%, oklch(0.18 0.03 245) 100%);
+  --gradient-card: linear-gradient(180deg, oklch(0.23 0.04 245) 0%, oklch(0.2 0.035 245) 100%);
+
+  --shadow-soft: 0 8px 30px -12px oklch(0 0 0 / 0.5);
+  --shadow-glow: 0 20px 60px -20px oklch(0.72 0.15 240 / 0.3);
+
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-feature-settings: "ss01", "cv11";
+    transition: background-color 0.3s ease;
+  }
+
+  /* keep section headings clear of the sticky header when jumping via the menu */
+  section[id] {
+    scroll-margin-top: 80px;
+  }
+
+  html[lang="te"] body {
+    font-family: "Noto Sans Telugu", var(--font-sans);
+  }
+}
+
+/* Telugu letters are taller, so tight headings need more line height.
+   Unlayered so it wins over the leading-* / text-* utilities. */
+html[lang="te"] h1,
+html[lang="te"] h2 {
+  line-height: 1.35;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent) 50%, transparent); }
+  50% { box-shadow: 0 0 0 14px color-mix(in oklab, var(--accent) 0%, transparent); }
+}
+
+@utility animate-marquee {
+  animation: marquee 45s linear infinite;
+}
+
+@utility pause-on-hover {
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@utility animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@utility animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+@utility animate-pulse-soft {
+  animation: pulse-soft 2.4s ease-in-out infinite;
+}
+
+/* ------------------------------------------------------------------------------------
+   Site animations. All are CSS transforms/opacity only (GPU-composited, no layout work),
+   no animation library, and everything stands still for "reduce motion" users.
+   ------------------------------------------------------------------------------------ */
+
+/* 1. Scroll reveal. Only elements that useReveal has registered (below the screen, once the
+   app is running) are hidden — the pre-rendered page and anything above the fold never wait
+   for JavaScript, and anything the script didn't register simply stays visible. */
+@keyframes reveal-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+.reveal-pending {
+  opacity: 0;
+}
+/* fill-mode "backwards" (not "forwards"), so once it has played the element's own
+   hover transforms work normally again */
+.is-revealed {
+  animation: reveal-in 0.6s var(--transition-smooth) var(--reveal-delay, 0ms) backwards;
+}
+
+/* 2. ECG heartbeat line (drawn stroke). Only runs while visible. */
+@keyframes ecg-draw {
+  0% { stroke-dashoffset: 1; opacity: 1; }
+  70% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+.ecg-line path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.ecg-line.in-view path {
+  animation: ecg-draw 3.2s ease-in-out infinite;
+}
+
+/* Looping decorations pause while off screen (useInView toggles .in-view). */
+.pause-offscreen:not(.in-view),
+.pause-offscreen:not(.in-view) * {
+  animation-play-state: paused !important;
+}
+
+/* 4. Logo heartbeat, once after load */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.14); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.08); }
+  60% { transform: scale(1); }
+}
+@utility animate-heartbeat {
+  animation: heartbeat 1.3s ease-in-out 0.4s 1 both;
+}
+
+/* 5. Service icon micro-interactions (played on card hover) */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-12deg); }
+  50% { transform: rotate(10deg); }
+  75% { transform: rotate(-6deg); }
+}
+@keyframes hop {
+  0%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-7px); }
+  60% { transform: translateY(-7px); }
+}
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, currentColor 0%, transparent); }
+  50% { box-shadow: 0 0 0 8px color-mix(in oklab, currentColor 18%, transparent); }
+}
+@keyframes spin-once {
+  to { transform: rotate(360deg); }
+}
+@utility icon-wiggle {
+  animation: wiggle 0.6s ease-in-out;
+}
+@utility icon-hop {
+  animation: hop 0.6s ease-in-out;
+}
+@utility icon-glow {
+  animation: glow 0.9s ease-in-out;
+}
+@utility icon-spin {
+  animation: spin-once 0.7s ease-in-out;
+}
+
+/* 7. Map pin bounce */
+@keyframes pin-bounce {
+  0%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-14px); }
+  50% { transform: translateY(0); }
+  65% { transform: translateY(-6px); }
+  80% { transform: translateY(0); }
+}
+@utility animate-pin-bounce {
+  animation: pin-bounce 2.2s ease-in-out infinite;
+}
+
+/* 8. Contact form: paper plane flies off, then a tick pops in */
+@keyframes fly-away {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  100% { transform: translate(60px, -40px) rotate(15deg); opacity: 0; }
+}
+@keyframes pop-in {
+  0% { transform: scale(0.3); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@utility animate-fly-away {
+  animation: fly-away 0.6s ease-in forwards;
+}
+@utility animate-pop-in {
+  animation: pop-in 0.45s var(--transition-smooth) both;
+}
+
+/* 9. WhatsApp chat bubble */
+@keyframes bubble-in {
+  0% { transform: translateY(10px) scale(0.9); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+@utility animate-bubble-in {
+  animation: bubble-in 0.35s var(--transition-smooth) both;
+}
+
+/* Everything stands still for visitors who ask their device to reduce motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-pending {
+    opacity: 1;
+  }
+}
