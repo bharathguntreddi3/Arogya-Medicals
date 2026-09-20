@@ -10,6 +10,7 @@ import {
   Syringe,
   Tablets,
   Tag,
+  UserCheck,
 } from 'lucide-react'
 import defaultHero from '../assets/hero.webp'
 import { useContact, useSiteSettings } from '../settings/SiteSettingsContext'
@@ -115,6 +116,39 @@ export default function Hero() {
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-accent/10" />
+
+            {/* Points at the man in the photo so visitors know he is the pharmacist, not a model.
+                Sits low on sm+ to clear the "Visit Our Store" card overhanging the corner. */}
+            <div className="pointer-events-none absolute right-2 top-3 flex animate-nudge flex-col items-end motion-reduce:animate-none sm:right-4 sm:top-20">
+              <div className="flex items-center gap-2 rounded-full border border-primary/25 bg-card/95 px-3 py-2 shadow-[var(--shadow-soft)] backdrop-blur sm:gap-2.5 sm:px-4 sm:py-2.5">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary sm:h-9 sm:w-9">
+                  <UserCheck className="h-4 w-4 sm:h-5 sm:w-5" />
+                </span>
+                <span className="text-left leading-tight">
+                  <span className="block text-[13px] font-bold text-foreground sm:text-sm">
+                    {t.hero.pharmacist}
+                  </span>
+                  <span className="block text-[10px] text-muted-foreground sm:text-xs">
+                    {t.hero.pharmacistNote}
+                  </span>
+                </span>
+              </div>
+
+              {/* curve sweeping down-left from the tag to his coat */}
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 120 76"
+                className="mr-3 -mt-0.5 h-18 w-32 text-primary drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)] sm:mr-6 sm:h-24 sm:w-40"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M104 8C101 34 88 56 18 66" />
+                <path d="M32 52 18 66l15 7" />
+              </svg>
+            </div>
           </div>
 
           {/* decorative medicines drifting around the photo (tablet & desktop only) */}

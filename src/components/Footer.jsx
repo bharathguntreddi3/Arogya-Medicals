@@ -5,6 +5,7 @@ import { hoursLines } from '../lib/hours'
 import { Facebook, Instagram, Youtube } from './BrandIcons'
 import EcgLine from './EcgLine'
 import { useLanguage } from '../i18n/LanguageContext'
+import { APP_VERSION_LABEL } from '../version'
 
 const LINK_HREFS = ['#services', '#why', '#location', '#contact']
 
@@ -118,8 +119,16 @@ export default function Footer() {
       <div className="border-t border-border">
         {/* md:pr-24 keeps the Admin link clear of the floating WhatsApp / back-to-top buttons */}
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-5 text-xs text-muted-foreground sm:flex-row sm:px-6 md:pr-24">
-          <span>
-            © <span suppressHydrationWarning>{new Date().getFullYear()}</span> {t.footer.rights}
+          <span className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 sm:justify-start">
+            <span>
+              © <span suppressHydrationWarning>{new Date().getFullYear()}</span> {t.footer.rights}
+            </span>
+            <span aria-hidden="true" className="hidden sm:inline">
+              ·
+            </span>
+            <span className="rounded-full border border-border px-2 py-0.5 font-mono text-[10px] tracking-tight">
+              {APP_VERSION_LABEL}
+            </span>
           </span>
           {/* the admin is its own page, opened in a new tab */}
           <a

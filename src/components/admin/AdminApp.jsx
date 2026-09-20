@@ -24,6 +24,7 @@ import { Field, PasswordInput } from './AdminUi'
 import { inputClass, primaryButtonClass, secondaryButtonClass } from './adminStyles'
 import { useConfirm } from './ConfirmContext'
 import AdminBackdrop from './AdminBackdrop'
+import { APP_VERSION_LABEL } from '../../version'
 import BannerTab from './BannerTab'
 import HoursTab from './HoursTab'
 import ContactTab from './ContactTab'
@@ -54,7 +55,12 @@ function Brand() {
       <img src={logo} alt="" width={40} height={40} className="h-10 w-10 animate-heartbeat object-contain" />
       <div className="leading-tight">
         <div className="text-base font-bold text-accent-strong sm:text-lg">Arogya Medicals</div>
-        <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Admin</div>
+        <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+          Admin
+          <span className="rounded-full border border-border px-1.5 py-px font-mono text-[9px] normal-case tracking-tight">
+            {APP_VERSION_LABEL}
+          </span>
+        </div>
       </div>
     </a>
   )

@@ -189,6 +189,16 @@ html[lang="te"] h2 {
   animation: pulse-soft 2.4s ease-in-out infinite;
 }
 
+/* The hero "Our Pharmacist" tag leans a hair toward him, so the arrow reads as a pointer. */
+@keyframes nudge {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-5px, 3px); }
+}
+
+@utility animate-nudge {
+  animation: nudge 3.4s ease-in-out infinite;
+}
+
 /* ------------------------------------------------------------------------------------
    Site animations. All are CSS transforms/opacity only (GPU-composited, no layout work),
    no animation library, and everything stands still for "reduce motion" users.
