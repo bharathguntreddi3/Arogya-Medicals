@@ -25,7 +25,7 @@
       try {
         var html = document.documentElement
         var theme = localStorage.getItem('arogya-theme')
-        if (theme === 'dark' || (!theme && matchMedia('(prefers-color-scheme: dark)').matches)) {
+        if (theme === 'dark') {
           html.classList.add('dark')
         }
         // visitor closed the offers strip recently: hide it before it can flash up

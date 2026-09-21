@@ -11,7 +11,7 @@
       // same saved light/dark choice as the website, applied before first paint
       try {
         var theme = localStorage.getItem('arogya-theme')
-        if (theme === 'dark' || (!theme && matchMedia('(prefers-color-scheme: dark)').matches)) {
+        if (theme === 'dark') {
           document.documentElement.classList.add('dark')
         }
       } catch (e) {}
