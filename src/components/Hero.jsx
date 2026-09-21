@@ -119,16 +119,16 @@ export default function Hero() {
 
             {/* Points at the man in the photo so visitors know he is the pharmacist, not a model.
                 Sits low on sm+ to clear the "Visit Our Store" card overhanging the corner. */}
-            <div className="pointer-events-none absolute right-2 top-3 flex animate-nudge flex-col items-end motion-reduce:animate-none sm:right-4 sm:top-20">
-              <div className="flex items-center gap-2 rounded-full border border-primary/25 bg-card/95 px-3 py-2 shadow-[var(--shadow-soft)] backdrop-blur sm:gap-2.5 sm:px-4 sm:py-2.5">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary sm:h-9 sm:w-9">
-                  <UserCheck className="h-4 w-4 sm:h-5 sm:w-5" />
+            <div className="pointer-events-none absolute right-1 top-1.5 flex animate-nudge flex-col items-end motion-reduce:animate-none sm:right-4 sm:top-20">
+              <div className="flex items-center gap-1.5 rounded-full border border-primary/25 bg-card/95 px-2 py-1.5 shadow-[var(--shadow-soft)] backdrop-blur sm:gap-2.5 sm:px-4 sm:py-2.5">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary sm:h-9 sm:w-9">
+                  <UserCheck className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
                 </span>
                 <span className="text-left leading-tight">
-                  <span className="block text-[13px] font-bold text-foreground sm:text-sm">
+                  <span className="block text-[11px] font-bold text-foreground sm:text-sm">
                     {t.hero.pharmacist}
                   </span>
-                  <span className="block text-[10px] text-muted-foreground sm:text-xs">
+                  <span className="block text-[9px] text-muted-foreground sm:text-xs">
                     {t.hero.pharmacistNote}
                   </span>
                 </span>
@@ -138,7 +138,7 @@ export default function Hero() {
               <svg
                 aria-hidden="true"
                 viewBox="0 0 120 76"
-                className="mr-3 -mt-0.5 h-18 w-32 text-primary drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)] sm:mr-6 sm:h-24 sm:w-40"
+                className="mr-2 -mt-0.5 h-12 w-20 text-primary drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)] sm:mr-6 sm:h-24 sm:w-40"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="3"
